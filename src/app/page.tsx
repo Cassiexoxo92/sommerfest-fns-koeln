@@ -2,6 +2,7 @@ import { Navigation }      from "@/components/Navigation";
 import { Hero }             from "@/components/Hero";
 import { EventStrip }       from "@/components/EventStrip";
 import { Welcome }          from "@/components/Welcome";
+import { Stats }            from "@/components/Stats";
 import { Programm }         from "@/components/Programm";
 import { Gallery }          from "@/components/Gallery";
 import { UeberDieSchule }   from "@/components/UeberDieSchule";
@@ -16,6 +17,7 @@ export default function Page() {
       <Hero />
       <EventStrip />
       <Welcome />
+      <Stats />
       <Programm />
       <Gallery />
       <UeberDieSchule />

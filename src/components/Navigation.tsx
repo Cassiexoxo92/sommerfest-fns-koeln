@@ -59,7 +59,7 @@ export function Navigation() {
             </button>
 
             {/* Desktop links */}
-            <nav className="hidden md:flex items-center gap-8" aria-label="Hauptnavigation">
+            <nav className="hidden md:flex items-center gap-6 lg:gap-8" aria-label="Hauptnavigation">
               {LINKS.map((l) => (
                 <button
                   key={l.href}
@@ -75,7 +75,7 @@ export function Navigation() {
                 href="https://freie-naturschulen.de"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`btn-${scrolled ? "primary" : "white"} !py-2 !px-5 !text-sm`}
+                className={`btn-nav ${scrolled ? "is-primary" : "is-white"}`}
                 aria-label="Zur Schulwebsite freie-naturschulen.de"
               >
                 Zur Schule
