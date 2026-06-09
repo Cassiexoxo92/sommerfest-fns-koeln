@@ -114,8 +114,8 @@ body {
 
 .btn-primary {
   font-size: 1.0625rem;
-  padding: 1rem 2.25rem;
-  min-height: 3.25rem;
+  padding: 1.125rem 2.75rem;
+  min-height: 3.625rem;
   background: linear-gradient(135deg, #758a2b 0%, #4a5a14 100%);
   color: #fff;
   box-shadow: 0 4px 20px rgba(117,138,43,0.40), 0 1px 4px rgba(0,0,0,0.12);
@@ -129,8 +129,8 @@ body {
 
 .btn-outline {
   font-size: 1.0625rem;
-  padding: 0.9375rem 2.25rem;
-  min-height: 3.25rem;
+  padding: 1.0625rem 2.75rem;
+  min-height: 3.625rem;
   background: transparent;
   color: var(--color-olive);
   border: 2.5px solid var(--color-olive);
@@ -145,8 +145,8 @@ body {
 
 .btn-white {
   font-size: 1.0625rem;
-  padding: 1rem 2.25rem;
-  min-height: 3.25rem;
+  padding: 1.125rem 2.75rem;
+  min-height: 3.625rem;
   background: #fff;
   color: var(--color-olive-dark);
   box-shadow: 0 4px 20px rgba(0,0,0,0.18), 0 1px 4px rgba(0,0,0,0.1);
@@ -160,8 +160,8 @@ body {
 /* Navigation CTA — compact */
 .btn-nav {
   font-size: 0.9375rem;
-  padding: 0.625rem 1.375rem;
-  min-height: 2.625rem;
+  padding: 0.75rem 1.5rem;
+  min-height: 2.875rem;
 }
 .btn-nav.is-primary {
   background: linear-gradient(135deg, #758a2b 0%, #4a5a14 100%);
@@ -194,7 +194,7 @@ body {
   text-transform: uppercase;
   color: var(--color-olive);
   background-color: var(--color-olive-pale);
-  padding: 0.35rem 0.9rem;
+  padding: 0.5rem 1rem;
   border-radius: var(--radius-pill);
   white-space: nowrap;
 }

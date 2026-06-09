@@ -1,92 +1,101 @@
 "use client";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { TreePine, Sun, Heart } from "lucide-react";
 
 const STATS = [
-  { number: "4",  label: "Jahre fns:köln",   sub: "Gegründet 2022 in Köln" },
-  { number: "1",  label: "Schulgemeinschaft", sub: "Grund- & Gesamtschule" },
-  { number: "∞",  label: "Begeisterung",      sub: "Täglich neu entfacht" },
+  {
+    Icon: TreePine,
+    number: "4",
+    unit: "Jahre",
+    label: "Natur & Gemeinschaft",
+    sub: "Gegründet 2022 in Köln-Rodenkirchen",
+  },
+  {
+    Icon: Sun,
+    number: "30+",
+    unit: "Stunden",
+    label: "Draußen pro Woche",
+    sub: "Kinder lernen täglich in der freien Natur",
+  },
+  {
+    Icon: Heart,
+    number: "100+",
+    unit: "Familien",
+    label: "In unserer Gemeinschaft",
+    sub: "Schüler*innen, Eltern & Lehrende vereint",
+  },
 ] as const;
 
 export function Stats() {
   return (
-    <section className="relative py-24 sm:py-32 overflow-hidden" aria-label="Unser Meilenstein">
-
-      {/* Background – royalty-free Unsplash photo */}
-      <Image
-        src="/images/stock1.jpg"
-        alt=""
-        fill
-        className="object-cover object-center"
-        sizes="100vw"
-        aria-hidden="true"
-        quality={80}
-      />
-
-      {/* Dark olive overlay */}
-      <div
-        className="absolute inset-0"
-        style={{ background: "linear-gradient(135deg, rgba(30,46,8,0.90) 0%, rgba(74,90,20,0.80) 60%, rgba(30,46,8,0.88) 100%)" }}
-        aria-hidden="true"
-      />
+    <section className="relative overflow-hidden" style={{ paddingBlock: "6rem" }} aria-label="fns:köln in Zahlen">
+      <Image src="/images/stock1.jpg" alt="" fill className="object-cover object-center"
+        sizes="100vw" aria-hidden="true" quality={80} />
+      <div className="absolute inset-0" aria-hidden="true"
+        style={{ background: "linear-gradient(150deg,rgba(30,46,8,0.93) 0%,rgba(74,90,20,0.82) 55%,rgba(30,46,8,0.90) 100%)" }} />
 
       <div className="relative z-10 container">
-        <div className="text-center mb-14">
-          <motion.p
-            className="section-label mb-3"
-            style={{ color: "#c8d87a" }}
-            initial={{ opacity: 0, y: 18 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.55 }}
-          >
-            Ein Grund zu feiern
+        {/* Header */}
+        <div style={{ textAlign: "center", marginBottom: "4rem" }}>
+          <motion.p className="section-label mb-4" style={{ color: "#c8d87a" }}
+            initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }} transition={{ duration: 0.5 }}>
+            fns:köln in Zahlen
           </motion.p>
-          <motion.h2
-            className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight"
-            initial={{ opacity: 0, y: 22 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-          >
-            Was wir gemeinsam<br/>
+          <motion.h2 style={{ textAlign: "center", color: "#fff", fontWeight: 800,
+              fontSize: "clamp(2rem,4vw,3.25rem)", lineHeight: 1.15, letterSpacing: "-0.02em" }}
+            initial={{ opacity: 0, y: 22 }} whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }}>
+            Was wir gemeinsam<br />
             <span style={{ color: "#9aad3b" }}>erreicht haben.</span>
           </motion.h2>
         </div>
 
-        {/* Counter grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-6 max-w-3xl mx-auto">
+        {/* Stats grid */}
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: "1.5rem",
+            maxWidth: "56rem", marginInline: "auto" }}
+          className="grid-cols-1 sm:grid-cols-3">
           {STATS.map((s, i) => (
-            <motion.div
-              key={s.label}
-              initial={{ opacity: 0, y: 36 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.65, delay: i * 0.14, ease: [0.16, 1, 0.3, 1] }}
-              className="flex flex-col items-center text-center px-4 py-8 rounded-2xl"
-              style={{
-                background: "rgba(255,255,255,0.06)",
-                border: "1px solid rgba(200,216,122,0.2)",
-                backdropFilter: "blur(8px)",
-              }}
-            >
-              <span className="stat-number">{s.number}</span>
-              <span className="text-xl sm:text-2xl font-bold text-white mt-4 mb-1">{s.label}</span>
-              <span className="text-sm" style={{ color: "rgba(200,216,122,0.7)" }}>{s.sub}</span>
+            <motion.div key={s.label}
+              initial={{ opacity: 0, y: 36 }} whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }} transition={{ duration: 0.65, delay: i * 0.14 }}
+              style={{ background: "rgba(255,255,255,0.07)", border: "1px solid rgba(200,216,122,0.22)",
+                backdropFilter: "blur(12px)", borderRadius: "1.5rem", padding: "2.5rem 2rem",
+                display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
+              {/* Icon circle */}
+              <div style={{ width: "3.5rem", height: "3.5rem", borderRadius: "50%",
+                  background: "rgba(154,173,59,0.18)", display: "flex", alignItems: "center",
+                  justifyContent: "center", marginBottom: "1.5rem" }}>
+                <s.Icon style={{ width: "1.75rem", height: "1.75rem", color: "#9aad3b" }} aria-hidden="true" />
+              </div>
+              {/* Big number */}
+              <div style={{ display: "flex", alignItems: "baseline", gap: "0.375rem", marginBottom: "0.25rem" }}>
+                <span style={{ fontSize: "clamp(3.5rem,8vw,5.5rem)", fontWeight: 900,
+                    lineHeight: 1, color: "#9aad3b", letterSpacing: "-0.04em",
+                    textShadow: "0 0 40px rgba(154,173,59,0.4)" }}>
+                  {s.number}
+                </span>
+                <span style={{ fontSize: "1.25rem", fontWeight: 700, color: "rgba(200,216,122,0.8)" }}>
+                  {s.unit}
+                </span>
+              </div>
+              <p style={{ fontSize: "1.0625rem", fontWeight: 700, color: "#fff",
+                  marginBottom: "0.5rem", lineHeight: 1.3 }}>{s.label}</p>
+              <p style={{ fontSize: "0.875rem", color: "rgba(200,216,122,0.65)", lineHeight: 1.5 }}>{s.sub}</p>
             </motion.div>
           ))}
         </div>
 
-        {/* Bottom tagline */}
-        <motion.p
-          className="text-center mt-14 text-white/60 text-base max-w-xl mx-auto"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 0.5 }}
-        >
-          Jetzt feiern wir — und ihr seid herzlich eingeladen.{" "}
-          <strong className="text-white/85">Freitag, 10. Juli 2026 · 15–18 Uhr · Eintritt frei.</strong>
+        {/* Tagline */}
+        <motion.p style={{ textAlign: "center", marginTop: "3.5rem", color: "rgba(255,255,255,0.6)",
+            fontSize: "1rem", maxWidth: "36rem", marginInline: "auto" }}
+          initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
+          viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.5 }}>
+          Jetzt feiern wir gemeinsam — und ihr seid herzlich eingeladen.{" "}
+          <strong style={{ color: "rgba(255,255,255,0.85)" }}>
+            Freitag, 10. Juli 2026 · 15–18 Uhr · Eintritt frei.
+          </strong>
         </motion.p>
       </div>
     </section>

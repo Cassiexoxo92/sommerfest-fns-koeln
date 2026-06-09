@@ -50,7 +50,7 @@ export function Praktisches() {
           className="text-center mb-16"
         >
           <p className="section-label mb-4">Alles auf einen Blick</p>
-          <h2 id="prakt-h" className="heading-xl" style={{ textAlign: "center" }}>
+          <h2 id="prakt-h" className="heading-xl text-center">
             Praktisches.
           </h2>
         </motion.div>
@@ -63,11 +63,10 @@ export function Praktisches() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.55, delay: i * 0.09 }}
-              className="card p-7"
+              className="card p-7 flex flex-col"
             >
-              {/* Icon */}
               <div
-                className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5"
+                className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 flex-shrink-0"
                 style={{ backgroundColor: "#f0f5e0" }}
                 aria-hidden="true"
               >
@@ -75,7 +74,7 @@ export function Praktisches() {
               </div>
 
               <span
-                className="inline-block text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full mb-4 text-white"
+                className="inline-block text-xs font-bold uppercase tracking-wider px-4 py-2 rounded-full mb-5 text-white self-start"
                 style={{ backgroundColor: "#758a2b" }}
               >
                 {item.highlight}
@@ -103,10 +102,10 @@ export function Praktisches() {
           >
             <Leaf className="w-8 h-8 text-white" />
           </div>
-          <h3 className="text-2xl sm:text-3xl md:text-4xl font-black mb-4">
+          <h3 className="text-2xl sm:text-3xl md:text-4xl font-black mb-4 text-center">
             Wir freuen uns auf euch!
           </h3>
-          <p className="text-white/85 max-w-lg mx-auto text-lg leading-relaxed">
+          <p className="text-white/85 max-w-lg mx-auto text-lg leading-relaxed text-center">
             <strong className="text-white">Freitag, 10. Juli 2026 · 15–18 Uhr</strong>
             <br />
             An der Wachsfabrik 25 (Innenhof), 50996 Köln
