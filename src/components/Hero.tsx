@@ -3,10 +3,10 @@
 import { useRef, useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ChevronDown, MapPin, Clock } from "lucide-react";
+import { ChevronDown, MapPin, Clock, CalendarDays, Leaf } from "lucide-react";
 
 export function Hero() {
-  const videoRef  = useRef<HTMLVideoElement>(null);
+  const videoRef   = useRef<HTMLVideoElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
   const [hovered,    setHovered]    = useState(false);
   const [videoReady, setVideoReady] = useState(false);
@@ -33,7 +33,6 @@ export function Hero() {
   const onEnter = useCallback(() => { if (!isMobile) { setHovered(true);  play();  } }, [isMobile, play]);
   const onLeave = useCallback(() => { if (!isMobile) { setHovered(false); pause(); } }, [isMobile, pause]);
 
-  /* Mobile: IntersectionObserver */
   useEffect(() => {
     if (!isMobile) return;
     const obs = new IntersectionObserver(([e]) => {
@@ -49,7 +48,7 @@ export function Hero() {
     <section
       id="hero"
       ref={sectionRef}
-      className="relative w-full h-dvh min-h-[620px] overflow-hidden"
+      className="relative w-full h-dvh min-h-[640px] overflow-hidden"
       onMouseEnter={onEnter}
       onMouseLeave={onLeave}
       aria-label="fns:köln Sommerfest 2026 — Willkommen"
@@ -65,7 +64,6 @@ export function Hero() {
       />
 
       {/* Hover video (self-hosted, DSGVO-konform) */}
-      {/* → public/video/hover-reel.mp4 ablegen (siehe public/video/README.md) */}
       <video
         ref={videoRef}
         className="video-overlay absolute inset-0 w-full h-full object-cover pointer-events-none"
@@ -80,100 +78,77 @@ export function Hero() {
       <div className="hero-overlay absolute inset-0" aria-hidden="true" />
 
       {/* ── CONTENT ── */}
-      <div className="relative z-10 h-full flex flex-col">
+      <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6">
 
-        {/* Top: logo centered */}
+        {/* Anniversary ribbon */}
         <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.1 }}
-          className="flex justify-center pt-24 md:pt-28"
+          initial={{ opacity: 0, scale: 0.85 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.55, delay: 0.2 }}
+          className="inline-flex items-center gap-2 border border-white/30 bg-white/10 backdrop-blur-sm rounded-full px-5 py-2 mb-7"
         >
-          <Image
-            src="/images/logo.png"
-            alt="fns:köln — Freie Naturschulen Köln"
-            width={180}
-            height={62}
-            className="h-14 w-auto object-contain brightness-0 invert drop-shadow-lg"
-            priority
-          />
+          <Leaf className="w-4 h-4 text-[#9aad3b]" aria-hidden="true" />
+          <span className="text-white/90 text-sm font-semibold tracking-wide">
+            4 Jahre fns:köln · Natur · Mensch · Umwelt
+          </span>
+          <Leaf className="w-4 h-4 text-[#9aad3b]" aria-hidden="true" />
         </motion.div>
 
-        {/* Center: headline */}
-        <div className="flex-1 flex flex-col items-center justify-center text-center px-4 -mt-8">
-          {/* Anniversary ribbon */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.85 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.55, delay: 0.3 }}
-            className="inline-flex items-center gap-2 border border-white/30 bg-white/10 backdrop-blur-sm rounded-full px-4 py-1.5 mb-6"
-          >
-            <span className="text-sm">🌿</span>
-            <span className="text-white/90 text-sm font-semibold tracking-wide">
-              4 Jahre fns:köln — Natur · Mensch · Umwelt
-            </span>
-            <span className="text-sm">🌿</span>
-          </motion.div>
-
-          {/* Main title */}
-          <motion.h1
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="text-[clamp(4rem,14vw,10rem)] font-black text-white leading-none tracking-tighter mb-3 drop-shadow-md"
-          >
-            Sommer<span style={{ color: "#9aad3b" }}>fest</span>
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.55 }}
-            className="text-xl sm:text-2xl font-light text-white/85 max-w-lg"
-          >
-            Kommt zahlreich vorbei und{" "}
-            <strong className="font-semibold text-white">feiert mit uns!</strong>
-          </motion.p>
-        </div>
-
-        {/* Bottom: date/time/location bar */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
+        {/* Main title */}
+        <motion.h1
+          initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.7 }}
-          className="pb-10 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 px-4"
+          transition={{ duration: 0.8, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
+          className="text-[clamp(4.5rem,15vw,11rem)] font-black text-white leading-none tracking-tighter mb-5 drop-shadow-lg"
         >
-          {/* Date pill */}
-          <div className="flex items-center gap-2.5 bg-[#758a2b] rounded-full px-5 py-2.5">
-            <span className="text-lg" aria-hidden="true">📅</span>
-            <span className="text-white font-bold text-sm">
-              Freitag, 10. Juli 2026
-            </span>
+          Sommer<span style={{ color: "#9aad3b" }}>fest</span>
+        </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.5 }}
+          className="text-xl sm:text-2xl md:text-3xl font-light text-white/85 max-w-xl mb-12"
+        >
+          Kommt zahlreich vorbei und{" "}
+          <strong className="font-bold text-white">feiert mit uns!</strong>
+        </motion.p>
+
+        {/* Date / time / location pills */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.65 }}
+          className="flex flex-col sm:flex-row items-center gap-3"
+        >
+          <div className="flex items-center gap-2.5 rounded-full px-5 py-3" style={{ backgroundColor: "#758a2b" }}>
+            <CalendarDays className="w-5 h-5 text-white/80 flex-shrink-0" aria-hidden="true" />
+            <span className="text-white font-bold text-base whitespace-nowrap">Freitag, 10. Juli 2026</span>
           </div>
 
-          <div className="flex items-center gap-2.5 bg-white/15 backdrop-blur-sm rounded-full px-5 py-2.5 border border-white/20">
-            <Clock className="w-4 h-4 text-white/80" aria-hidden="true" />
-            <span className="text-white font-semibold text-sm">15:00 – 18:00 Uhr</span>
+          <div className="flex items-center gap-2.5 bg-white/15 backdrop-blur-sm rounded-full px-5 py-3 border border-white/25">
+            <Clock className="w-5 h-5 text-white/80 flex-shrink-0" aria-hidden="true" />
+            <span className="text-white font-semibold text-base whitespace-nowrap">15:00 – 18:00 Uhr</span>
           </div>
 
-          <div className="flex items-center gap-2.5 bg-white/15 backdrop-blur-sm rounded-full px-5 py-2.5 border border-white/20">
-            <MapPin className="w-4 h-4 text-white/80" aria-hidden="true" />
-            <span className="text-white font-semibold text-sm">Wachsfabrik · Köln</span>
+          <div className="flex items-center gap-2.5 bg-white/15 backdrop-blur-sm rounded-full px-5 py-3 border border-white/25">
+            <MapPin className="w-5 h-5 text-white/80 flex-shrink-0" aria-hidden="true" />
+            <span className="text-white font-semibold text-base whitespace-nowrap">Wachsfabrik · Köln</span>
           </div>
         </motion.div>
-
-        {/* Scroll arrow */}
-        <motion.button
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 1 }}
-          onClick={() => document.querySelector("#event-strip")?.scrollIntoView({ behavior: "smooth" })}
-          className="absolute bottom-3 left-1/2 -translate-x-1/2 animate-float text-white/60 hover:text-white transition-colors"
-          aria-label="Weiter scrollen"
-        >
-          <ChevronDown className="w-7 h-7" />
-        </motion.button>
       </div>
+
+      {/* Scroll arrow */}
+      <motion.button
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 1.1 }}
+        onClick={() => document.querySelector("#event-strip")?.scrollIntoView({ behavior: "smooth" })}
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 animate-float text-white/60 hover:text-white transition-colors"
+        aria-label="Weiter scrollen"
+      >
+        <ChevronDown className="w-8 h-8" />
+      </motion.button>
     </section>
   );
 }
