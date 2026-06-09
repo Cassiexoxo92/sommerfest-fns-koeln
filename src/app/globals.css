@@ -1,0 +1,177 @@
+@import "tailwindcss";
+
+@theme {
+  /* fns:Köln CI Colors */
+  --color-fns-primary: #6ec1e4;
+  --color-fns-accent: #61ce70;
+  --color-fns-olive: #758a2b;
+  --color-fns-text: #54595f;
+  --color-fns-muted: #7a7a7a;
+  --color-fns-bg: #f9f8f4;
+  --color-fns-surface: #ffffff;
+
+  /* Summer palette (warm additions) */
+  --color-summer-yellow: #f5c842;
+  --color-summer-orange: #f4855a;
+  --color-summer-green-light: #d4edda;
+
+  /* Typography */
+  --font-inter: "Inter", "system-ui", sans-serif;
+
+  /* Spacing extensions */
+  --spacing-18: 4.5rem;
+  --spacing-22: 5.5rem;
+}
+
+/* -------------------------
+   Base reset & globals
+   ------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-inter);
+  background-color: var(--color-fns-bg);
+  color: var(--color-fns-text);
+  overflow-x: hidden;
+}
+
+/* -------------------------
+   Custom scrollbar
+   ------------------------- */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-fns-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-fns-primary);
+  border-radius: 3px;
+}
+
+/* -------------------------
+   Focus styles (a11y)
+   ------------------------- */
+:focus-visible {
+  outline: 2px solid var(--color-fns-primary);
+  outline-offset: 2px;
+}
+
+/* -------------------------
+   Utility classes
+   ------------------------- */
+.section-padding {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+@media (min-width: 1024px) {
+  .section-padding {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+  }
+}
+
+.container-wide {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .container-wide {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+
+/* -------------------------
+   Gradient helpers
+   ------------------------- */
+.hero-gradient {
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.55) 0%,
+    rgba(0, 0, 0, 0.25) 40%,
+    rgba(0, 0, 0, 0.65) 100%
+  );
+}
+
+.section-gradient {
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--color-fns-primary) 8%, transparent) 0%,
+    color-mix(in srgb, var(--color-fns-accent) 5%, transparent) 100%
+  );
+}
+
+/* -------------------------
+   Animation keyframes
+   ------------------------- */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.7; }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 3s ease-in-out infinite;
+}
+
+/* -------------------------
+   GSAP reveal base state
+   ------------------------- */
+.gsap-reveal {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+/* -------------------------
+   Video hover overlay
+   ------------------------- */
+.video-overlay {
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* -------------------------
+   Line badge (ÖPNV)
+   ------------------------- */
+.line-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.25rem;
+  height: 1.75rem;
+  border-radius: 0.375rem;
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+}
