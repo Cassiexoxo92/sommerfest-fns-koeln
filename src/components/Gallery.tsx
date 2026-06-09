@@ -34,7 +34,8 @@ export function Gallery() {
           <h2 id="gal-h" className="heading-xl mb-5" style={{ textAlign: "center" }}>
             Das sind wir.
           </h2>
-          <p className="body-lg mx-auto mb-8" style={{ textAlign: "center", maxWidth: "44rem" }}>
+          <p style={{ fontSize: "1.1875rem", lineHeight: 1.8, color: "#54595f", textAlign: "center",
+              maxWidth: "44rem", marginInline: "auto", marginBottom: "2rem" }}>
             Die fns:köln ist keine gewöhnliche Schule. Hier lernen Kinder mit echter Freude,
             wachsen in der Natur und werden Teil einer Gemeinschaft, die trägt —
             <strong style={{ color: "#2a3418" }}> seit 2022 in Köln-Rodenkirchen.</strong>

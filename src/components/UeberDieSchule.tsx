@@ -20,55 +20,48 @@ export function UeberDieSchule() {
     >
       <div className="container">
 
-        {/* Centered section header above the grid */}
+        {/* Section header — fully centered */}
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.65 }}
-          className="text-center mb-16"
+          initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }} transition={{ duration: 0.65 }}
+          style={{ textAlign: "center", marginBottom: "4rem" }}
         >
           <p className="section-label mb-3" style={{ color: "#c8d87a" }}>Die freie Naturschule Köln</p>
-          <p
-            className="text-sm font-bold tracking-[0.2em] uppercase mb-5"
-            style={{ color: "#9aad3b" }}
-          >
+          <p style={{ fontSize: "0.8125rem", fontWeight: 700, letterSpacing: "0.2em",
+              textTransform: "uppercase", color: "#9aad3b", marginBottom: "1.25rem" }}>
             Natur · Mensch · Umwelt
           </p>
-          <h2
-            id="ueber-h"
-            className="text-4xl sm:text-5xl font-black text-white leading-tight text-center"
-          >
+          <h2 id="ueber-h"
+            style={{ textAlign: "center", color: "#fff", fontWeight: 800,
+              fontSize: "clamp(2rem,4.5vw,3.5rem)", lineHeight: 1.1, letterSpacing: "-0.025em" }}>
             Eine Schule, die das{" "}
             <span style={{ color: "#9aad3b" }}>Leben</span> lehrt.
           </h2>
         </motion.div>
 
-        {/* Two-column content grid */}
+        {/* Two-column content */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
 
-          {/* Left: Text content */}
+          {/* Left */}
           <motion.div
-            initial={{ opacity: 0, x: -36 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="text-center lg:text-left"
+            initial={{ opacity: 0, x: -36 }} whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }} transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
-            <Image
-              src="/images/logo.png"
-              alt="fns:köln Logo"
-              width={200}
-              height={69}
-              className="h-14 w-auto object-contain brightness-0 invert mb-8 mx-auto lg:mx-0"
-            />
+            <div style={{ display: "flex", justifyContent: "center", marginBottom: "2rem" }}
+              className="lg:justify-start">
+              <Image src="/images/logo.png" alt="fns:köln Logo"
+                width={200} height={69}
+                className="h-14 w-auto object-contain brightness-0 invert" />
+            </div>
 
-            <p className="text-white/80 text-base leading-relaxed mb-4">
+            <p style={{ color: "rgba(255,255,255,0.82)", fontSize: "1.0625rem",
+                lineHeight: 1.75, marginBottom: "1rem" }}>
               Die fns:köln ist eine freie Grund- und Gesamtschule in Köln-Rodenkirchen,
               die 2022 mit einer kraftvollen Idee gestartet ist: Kinder sollen nicht nur
-              lernen — sie sollen <strong className="text-white">aufblühen</strong>.
+              lernen — sie sollen <strong style={{ color: "#fff" }}>aufblühen</strong>.
             </p>
-            <p className="text-white/75 text-base leading-relaxed mb-10">
+            <p style={{ color: "rgba(255,255,255,0.72)", fontSize: "1.0625rem",
+                lineHeight: 1.75, marginBottom: "2.5rem" }}>
               In jahrgangsgemischten Stammgruppen, mit festen Mentoren und einem Schulleben
               mitten in der Natur wachsen unsere Schülerinnen und Schüler zu selbstständigen,
               empathischen und neugierigen jungen Menschen heran. Seit 2025/26 gibt es auch
@@ -76,72 +69,75 @@ export function UeberDieSchule() {
             </p>
 
             {/* Pillar cards */}
-            <div className="grid grid-cols-3 gap-3 mb-10">
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: "0.75rem",
+                marginBottom: "2.5rem" }}>
               {PILLARS.map(({ Icon, label, desc }) => (
-                <div
-                  key={label}
-                  className="flex flex-col items-center gap-2 p-4 rounded-xl text-center"
-                  style={{ backgroundColor: "rgba(255,255,255,0.08)" }}
-                >
-                  <Icon className="w-5 h-5" style={{ color: "#9aad3b" }} aria-hidden="true" />
-                  <p className="text-white text-xs sm:text-sm font-bold leading-tight">{label}</p>
-                  <p className="text-white/55 text-xs leading-tight hidden sm:block">{desc}</p>
+                <div key={label}
+                  style={{ display: "flex", flexDirection: "column", alignItems: "center",
+                    gap: "0.5rem", padding: "1.125rem 0.75rem", borderRadius: "0.875rem",
+                    backgroundColor: "rgba(255,255,255,0.08)", textAlign: "center" }}>
+                  <Icon style={{ width: "1.375rem", height: "1.375rem", color: "#9aad3b" }} aria-hidden="true" />
+                  <p style={{ color: "#fff", fontSize: "0.875rem", fontWeight: 700,
+                      lineHeight: 1.3 }}>{label}</p>
+                  <p style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.75rem",
+                      lineHeight: 1.3 }}>{desc}</p>
                 </div>
               ))}
             </div>
 
-            {/* Sommerfest teaser */}
-            <div
-              className="rounded-2xl p-6 mb-10 text-left"
-              style={{ backgroundColor: "rgba(255,255,255,0.1)", border: "1px solid rgba(200,216,122,0.2)" }}
-            >
-              <p className="text-xs font-bold uppercase tracking-wider mb-2" style={{ color: "#9aad3b" }}>
+            {/* Warum-Sommerfest teaser */}
+            <div style={{ borderRadius: "1rem", padding: "1.5rem", marginBottom: "2.5rem",
+                backgroundColor: "rgba(255,255,255,0.1)",
+                border: "1px solid rgba(200,216,122,0.2)" }}>
+              <p style={{ fontSize: "0.75rem", fontWeight: 700, textTransform: "uppercase",
+                  letterSpacing: "0.14em", color: "#9aad3b", marginBottom: "0.625rem" }}>
                 Warum zum Sommerfest?
               </p>
-              <p className="text-white/90 text-sm leading-relaxed">
-                Das Sommerfest ist <strong className="text-white">die</strong> Gelegenheit,
+              <p style={{ color: "rgba(255,255,255,0.88)", fontSize: "0.9375rem", lineHeight: 1.7 }}>
+                Das Sommerfest ist <strong style={{ color: "#fff" }}>die</strong> Gelegenheit,
                 die fns:köln zu erleben, die Gemeinschaft zu spüren und das Schulgelände mit
                 Kölns größtem Insektenhotel, der Ackerschule und den grünen Klassenzimmern
                 hautnah zu entdecken. Offen für alle — Eintritt frei.
               </p>
             </div>
 
-            <div className="flex justify-center lg:justify-start">
+            {/* Button — inline-flex, never full-width */}
+            <div style={{ display: "flex", justifyContent: "center" }}
+              className="lg:justify-start">
               <Link
                 href="https://freie-naturschulen.de"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-white"
+                style={{ display: "inline-flex", width: "auto", flexShrink: 0 }}
                 aria-label="Mehr über fns:köln erfahren auf freie-naturschulen.de"
               >
                 Mehr über fns:köln erfahren
-                <ExternalLink className="w-4 h-4" aria-hidden="true" />
+                <ExternalLink className="w-5 h-5" aria-hidden="true" />
               </Link>
             </div>
           </motion.div>
 
           {/* Right: Image */}
           <motion.div
-            initial={{ opacity: 0, x: 36 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-            className="relative"
-            aria-hidden="true"
+            initial={{ opacity: 0, x: 36 }} whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+            style={{ position: "relative" }} aria-hidden="true"
           >
-            <div className="relative aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl">
-              <Image
-                src="/images/foto1.jpg"
-                alt=""
-                fill
-                className="object-cover"
-                sizes="(max-width:1024px) 100vw,50vw"
-              />
+            <div style={{ position: "relative", borderRadius: "1.5rem", overflow: "hidden",
+                boxShadow: "0 24px 64px rgba(0,0,0,0.4)", aspectRatio: "3/4" }}>
+              <Image src="/images/foto1.jpg" alt="" fill className="object-cover"
+                sizes="(max-width:1024px) 100vw,50vw" />
             </div>
-            <div className="absolute -bottom-5 -left-5 bg-white rounded-2xl shadow-xl px-5 py-4 border border-[#758a2b]/15">
-              <p className="text-xs font-bold text-[#758a2b] uppercase tracking-wider mb-0.5">Gegründet 2022</p>
-              <p className="text-sm font-semibold text-[#2a3418]">Köln-Rodenkirchen</p>
-              <p className="text-xs text-[#7a7a7a]">Natur · Mensch · Umwelt</p>
+            <div style={{ position: "absolute", bottom: "-1.25rem", left: "-1.25rem",
+                background: "#fff", borderRadius: "1rem", boxShadow: "0 8px 32px rgba(0,0,0,0.15)",
+                padding: "1rem 1.25rem", border: "1px solid rgba(117,138,43,0.12)" }}>
+              <p style={{ fontSize: "0.6875rem", fontWeight: 700, color: "#758a2b",
+                  textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "0.25rem" }}>
+                Gegründet 2022
+              </p>
+              <p style={{ fontSize: "0.9375rem", fontWeight: 700, color: "#2a3418" }}>Köln-Rodenkirchen</p>
+              <p style={{ fontSize: "0.75rem", color: "#7a7a7a" }}>Natur · Mensch · Umwelt</p>
             </div>
           </motion.div>
         </div>

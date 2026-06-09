@@ -86,7 +86,8 @@ export function Programm() {
           <h2 id="prog-h" className="heading-xl mb-5 text-center">
             Das Programm.
           </h2>
-          <p className="body-lg max-w-2xl mx-auto text-center">
+          <p style={{ fontSize: "1.1875rem", lineHeight: 1.8, color: "#54595f",
+              textAlign: "center", maxWidth: "40rem", marginInline: "auto" }}>
             Von Leckereien bis zu Naturentdeckungen — für jeden ist etwas dabei.
           </p>
         </motion.div>

@@ -47,10 +47,10 @@ export function Praktisches() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="text-center mb-16"
+          style={{ textAlign: "center", marginBottom: "4rem" }}
         >
           <p className="section-label mb-4">Alles auf einen Blick</p>
-          <h2 id="prakt-h" className="heading-xl text-center">
+          <h2 id="prakt-h" className="heading-xl" style={{ textAlign: "center" }}>
             Praktisches.
           </h2>
         </motion.div>
