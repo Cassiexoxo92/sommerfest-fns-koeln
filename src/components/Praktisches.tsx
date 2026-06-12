@@ -74,7 +74,7 @@ export function Praktisches() {
               </div>
 
               <span
-                style={{ display: "inline-block", fontSize: "0.75rem", fontWeight: 700,
+                style={{ display: "inline-block", alignSelf: "flex-start", fontSize: "0.75rem", fontWeight: 700,
                   textTransform: "uppercase", letterSpacing: "0.09em", backgroundColor: "#758a2b",
                   color: "#fff", padding: "0.5rem 1.25rem", borderRadius: "9999px", marginBottom: "1.25rem",
                   whiteSpace: "nowrap" }}

@@ -22,14 +22,18 @@
   --radius-pill:        9999px;
 }
 
-/* ── Reset ─────────────────────────────────────── */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+/*
+  No manual reset here: Tailwind v4 Preflight (@layer base) already applies
+  box-sizing/margin/padding resets. An unlayered `*` reset would override
+  every margin/padding utility (unlayered CSS beats @layer utilities).
+*/
 
 html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 17px;           /* base scale up slightly */
+  overflow-x: clip;          /* never allow page-level horizontal scroll */
 }
 
 body {
@@ -155,6 +159,17 @@ body {
   background: var(--color-olive-pale);
   box-shadow: 0 8px 30px rgba(0,0,0,0.22);
   transform: translateY(-2px);
+}
+
+/* Small screens: keep pill buttons inside their container */
+@media (max-width: 480px) {
+  .btn-primary,
+  .btn-outline,
+  .btn-white {
+    font-size: 0.9375rem;
+    padding-inline: 1.5rem;
+    max-width: 100%;
+  }
 }
 
 /* Navigation CTA — compact */

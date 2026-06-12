@@ -61,8 +61,7 @@ export function UeberDieSchule() {
             </p>
 
             {/* Pillar cards */}
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: "0.75rem",
-                marginBottom: "2.5rem" }}>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3" style={{ marginBottom: "2.5rem" }}>
               {PILLARS.map(({ Icon, label, desc }) => (
                 <div key={label}
                   style={{ display: "flex", flexDirection: "column", alignItems: "center",

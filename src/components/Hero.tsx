@@ -84,7 +84,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
           className="font-black text-white leading-none tracking-tighter mb-6 drop-shadow-lg"
-          style={{ fontSize: "clamp(5rem, 16vw, 12rem)" }}
+          style={{ fontSize: "clamp(3.25rem, 15vw, 12rem)", maxWidth: "100%" }}
         >
           Sommer<span style={{ color: "#9aad3b" }}>fest</span>
         </motion.h1>
