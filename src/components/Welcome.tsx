@@ -38,7 +38,7 @@ export function Welcome() {
         {/* ── Centered text block ── */}
         <div style={{ maxWidth: "52rem", marginInline: "auto", textAlign: "center" }}>
 
-          <div className="wrev ornament mb-8"><span /><span /><span /></div>
+          <div className="wrev ornament" style={{ marginBottom: "2rem" }}><span /><span /><span /></div>
 
           <p className="wrev section-label mb-5">10. Juli 2026 · Köln-Rodenkirchen</p>
 

@@ -53,9 +53,8 @@ export function Stats() {
         </div>
 
         {/* Stats grid */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: "1.5rem",
-            maxWidth: "56rem", marginInline: "auto" }}
-          className="grid-cols-1 sm:grid-cols-3">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6"
+          style={{ maxWidth: "56rem", marginInline: "auto" }}>
           {STATS.map((s, i) => (
             <motion.div key={s.label}
               initial={{ opacity: 0, y: 36 }} whileInView={{ opacity: 1, y: 0 }}

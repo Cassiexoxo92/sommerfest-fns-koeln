@@ -47,8 +47,7 @@ export function UeberDieSchule() {
             initial={{ opacity: 0, x: -36 }} whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }} transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div style={{ display: "flex", justifyContent: "center", marginBottom: "2rem" }}
-              className="lg:justify-start">
+            <div className="flex justify-center lg:justify-start" style={{ marginBottom: "2rem" }}>
               <Image src="/images/logo.png" alt="fns:köln Logo"
                 width={200} height={69}
                 className="h-14 w-auto object-contain brightness-0 invert" />
