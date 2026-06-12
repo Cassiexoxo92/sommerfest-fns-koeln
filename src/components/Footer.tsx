@@ -88,6 +88,9 @@ export function Footer() {
             <Heart className="w-3.5 h-3.5 text-[#9aad3b]" aria-hidden="true" />
             für unsere Schulgemeinschaft
           </p>
+          <p style={{ fontSize: "0.6875rem", color: "rgba(255,255,255,0.28)", letterSpacing: "0.02em" }}>
+            Designed by Sandra Rautenberg &amp; Tim Honnef
+          </p>
         </div>
       </div>
     </footer>
