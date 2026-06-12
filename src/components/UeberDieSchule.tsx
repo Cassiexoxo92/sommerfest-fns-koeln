@@ -102,14 +102,13 @@ export function UeberDieSchule() {
             </div>
 
             {/* Button — inline-flex, never full-width */}
-            <div style={{ display: "flex", justifyContent: "center" }}
-              className="lg:justify-start">
+            <div style={{ textAlign: "center" }}>
               <Link
                 href="https://freie-naturschulen.de"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-white"
-                style={{ display: "inline-flex", width: "auto", flexShrink: 0 }}
+                style={{ display: "inline-flex", width: "auto" }}
                 aria-label="Mehr über fns:köln erfahren auf freie-naturschulen.de"
               >
                 Mehr über fns:köln erfahren
