@@ -13,11 +13,11 @@ export function Anfahrt() {
         <motion.div initial={{ opacity: 0, y: 32 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.7 }}
           style={{ textAlign: "center", marginBottom: "3.5rem" }}>
-          <p className="section-label mb-4">So findet ihr uns</p>
+          <p className="section-label mb-4" style={{ textAlign: "center" }}>So findet ihr uns</p>
           <h2 id="anfahrt-h" className="heading-xl mb-5" style={{ textAlign: "center" }}>
             Anfahrt.
           </h2>
-          <p className="body-lg mx-auto" style={{ textAlign: "center", maxWidth: "36rem" }}>
+          <p style={{ fontSize: "1.1875rem", lineHeight: 1.8, color: "#54595f", textAlign: "center", maxWidth: "36rem", marginInline: "auto" }}>
             Gut erreichbar mit Bahn und Bus —
             im Innenhof der historischen Wachsfabrik in Köln-Rodenkirchen.
           </p>

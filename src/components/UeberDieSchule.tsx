@@ -55,17 +55,10 @@ export function UeberDieSchule() {
             </div>
 
             <p style={{ color: "rgba(255,255,255,0.82)", fontSize: "1.0625rem",
-                lineHeight: 1.75, marginBottom: "1rem" }}>
-              Die fns:köln ist eine freie Grund- und Gesamtschule in Köln-Rodenkirchen,
-              die 2022 mit einer kraftvollen Idee gestartet ist: Kinder sollen nicht nur
-              lernen — sie sollen <strong style={{ color: "#fff" }}>aufblühen</strong>.
-            </p>
-            <p style={{ color: "rgba(255,255,255,0.72)", fontSize: "1.0625rem",
                 lineHeight: 1.75, marginBottom: "2.5rem" }}>
-              In jahrgangsgemischten Stammgruppen, mit festen Mentoren und einem Schulleben
-              mitten in der Natur wachsen unsere Schülerinnen und Schüler zu selbstständigen,
-              empathischen und neugierigen jungen Menschen heran. Seit 2025/26 gibt es auch
-              unsere Oberstufe.
+              Seit 2022 lernen Kinder an der fns:köln in Köln-Rodenkirchen mit echter Freude —
+              jahrgangsgemischt, mit festen Mentoren und täglich draußen in der Natur.
+              Kinder sollen nicht nur lernen, sie sollen <strong style={{ color: "#fff" }}>aufblühen</strong>.
             </p>
 
             {/* Pillar cards */}

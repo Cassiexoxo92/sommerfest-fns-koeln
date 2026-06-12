@@ -1,6 +1,5 @@
 "use client";
 import { useRef, useEffect } from "react";
-import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
@@ -74,46 +73,6 @@ export function Welcome() {
           </div>
         </div>
 
-        {/* ── Photo grid ── */}
-        <div
-          className="wrev"
-          style={{
-            marginTop: "4rem",
-            display: "grid",
-            gridTemplateColumns: "repeat(4, 1fr)",
-            gridTemplateRows: "auto auto",
-            gap: "1rem",
-            maxWidth: "56rem",
-            marginInline: "auto",
-          }}
-        >
-          {/* Large photo — left 2 columns, 2 rows */}
-          <div
-            style={{ gridColumn: "1 / 3", gridRow: "1 / 3", position: "relative", borderRadius: "1.125rem", overflow: "hidden", aspectRatio: "4/3" }}
-            className="shadow-lg"
-          >
-            <Image
-              src="/images/foto3.jpg"
-              alt="fns:köln Schulleben"
-              fill
-              className="object-cover hover:scale-105 transition-transform duration-700"
-              sizes="(max-width:640px) 100vw, 50vw"
-            />
-          </div>
-
-          {/* Top-right */}
-          <div style={{ gridColumn: "3 / 5", position: "relative", borderRadius: "1.125rem", overflow: "hidden", aspectRatio: "16/9" }} className="shadow-md">
-            <Image src="/images/foto4.jpg" alt="Kinder und Natur" fill className="object-cover hover:scale-105 transition-transform duration-700" sizes="(max-width:640px) 100vw, 50vw" />
-          </div>
-
-          {/* Bottom-right split */}
-          <div style={{ position: "relative", borderRadius: "1.125rem", overflow: "hidden", aspectRatio: "4/3" }} className="shadow-md">
-            <Image src="/images/foto5.jpg" alt="Gemeinschaft" fill className="object-cover hover:scale-105 transition-transform duration-700" sizes="(max-width:640px) 50vw, 25vw" />
-          </div>
-          <div style={{ position: "relative", borderRadius: "1.125rem", overflow: "hidden", aspectRatio: "4/3" }} className="shadow-md">
-            <Image src="/images/stock2.jpg" alt="Sommer im Freien" fill className="object-cover object-center hover:scale-105 transition-transform duration-700" sizes="(max-width:640px) 50vw, 25vw" />
-          </div>
-        </div>
 
       </div>
     </section>

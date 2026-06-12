@@ -74,8 +74,10 @@ export function Praktisches() {
               </div>
 
               <span
-                className="inline-block text-xs font-bold uppercase tracking-wider px-4 py-2 rounded-full mb-5 text-white self-start"
-                style={{ backgroundColor: "#758a2b" }}
+                style={{ display: "inline-block", fontSize: "0.75rem", fontWeight: 700,
+                  textTransform: "uppercase", letterSpacing: "0.09em", backgroundColor: "#758a2b",
+                  color: "#fff", padding: "0.5rem 1.25rem", borderRadius: "9999px", marginBottom: "1.25rem",
+                  whiteSpace: "nowrap" }}
               >
                 {item.highlight}
               </span>
@@ -96,8 +98,9 @@ export function Praktisches() {
           style={{ background: "linear-gradient(135deg, #4a5a14 0%, #758a2b 100%)" }}
         >
           <div
-            className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-5"
-            style={{ backgroundColor: "rgba(255,255,255,0.15)" }}
+            style={{ width: "4rem", height: "4rem", borderRadius: "9999px", display: "flex",
+              alignItems: "center", justifyContent: "center", marginInline: "auto", marginBottom: "1.25rem",
+              backgroundColor: "rgba(255,255,255,0.15)" }}
             aria-hidden="true"
           >
             <Leaf className="w-8 h-8 text-white" />

@@ -5,11 +5,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, ZoomIn, Leaf, Users, TreePine, Star } from "lucide-react";
 
 const PHOTOS = [
-  { src: "/images/foto1.jpg", alt: "Schülerinnen und Schüler der fns:köln beim Sommerfest",    span: "sm:col-span-2 sm:row-span-2" },
-  { src: "/images/foto2.jpg", alt: "Natur erleben — fns:köln Schulalltag",                     span: "" },
-  { src: "/images/foto3.jpg", alt: "Gemeinschaft und Lernen an der fns:köln",                  span: "" },
-  { src: "/images/foto4.jpg", alt: "Freie Naturschule Köln — Naturpädagogik",                  span: "sm:col-span-2" },
-  { src: "/images/foto5.jpg", alt: "fns:köln Schulgelände und Insektenhotel",                  span: "" },
+  { src: "/images/foto1.jpg", alt: "Schülerinnen und Schüler der fns:köln beim Sommerfest", span: "sm:col-span-2 sm:row-span-2" },
+  { src: "/images/foto4.jpg", alt: "Kinder erleben Natur — fns:köln Schulalltag",           span: "" },
+  { src: "/images/stock2.jpg", alt: "Sommer und Gemeinschaft an der fns:köln",               span: "" },
 ] as const;
 
 const HIGHLIGHTS = [
@@ -30,7 +28,7 @@ export function Gallery() {
         <motion.div initial={{ opacity: 0, y: 36 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.7 }}
           style={{ textAlign: "center", marginBottom: "3rem" }}>
-          <p className="section-label mb-4">Einblicke in unsere Schule</p>
+          <p className="section-label mb-4" style={{ textAlign: "center" }}>Einblicke in unsere Schule</p>
           <h2 id="gal-h" className="heading-xl mb-5" style={{ textAlign: "center" }}>
             Das sind wir.
           </h2>
