@@ -2,7 +2,7 @@
 
 import { useRef, useState, useEffect, useCallback } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import { ChevronDown, MapPin, Clock, CalendarDays, Leaf } from "lucide-react";
 
 export function Hero() {
@@ -44,6 +44,22 @@ export function Hero() {
     return () => { if (el) obs.unobserve(el); };
   }, [isMobile, play, pause]);
 
+  // Scroll-linked parallax: background drifts slower than scroll (depth),
+  // content gently ascends + fades. Disabled for reduced-motion users.
+  const reduce = useReducedMotion();
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  });
+  const bgYRaw           = useTransform(scrollYProgress, [0, 1], ["0%", "9%"]);
+  const contentYRaw      = useTransform(scrollYProgress, [0, 1], ["0%", "-14%"]);
+  const contentOpacityRaw = useTransform(scrollYProgress, [0, 0.55], [1, 0]);
+
+  const bgY            = reduce ? "0%" : bgYRaw;
+  const bgScale        = reduce ? 1 : 1.22;
+  const contentY       = reduce ? "0%" : contentYRaw;
+  const contentOpacity = reduce ? 1 : contentOpacityRaw;
+
   return (
     <section
       id="hero"
@@ -53,18 +69,24 @@ export function Hero() {
       onMouseLeave={onLeave}
       aria-label="fns:köln Sommerfest 2026"
     >
-      <Image src="/images/foto2.jpg" alt="" fill priority quality={85}
-        className="object-cover object-center" sizes="100vw" aria-hidden="true" />
+      {/* Parallax media layer — image + hover video drift together, slower than scroll */}
+      <motion.div className="absolute inset-0" style={{ y: bgY, scale: bgScale }}>
+        <Image src="/images/foto2.jpg" alt="" fill priority quality={85}
+          className="object-cover object-center" sizes="100vw" aria-hidden="true" />
 
-      <video ref={videoRef}
-        className="video-overlay absolute inset-0 w-full h-full object-cover pointer-events-none"
-        style={{ opacity: hovered && videoReady ? 1 : 0 }}
-        src="/video/hover-reel.mp4" muted loop playsInline preload="metadata"
-        onCanPlay={() => setVideoReady(true)} aria-hidden="true" />
+        <video ref={videoRef}
+          className="video-overlay absolute inset-0 w-full h-full object-cover pointer-events-none"
+          style={{ opacity: hovered && videoReady ? 1 : 0 }}
+          src="/video/hover-reel.mp4" muted loop playsInline preload="metadata"
+          onCanPlay={() => setVideoReady(true)} aria-hidden="true" />
+      </motion.div>
 
       <div className="hero-overlay absolute inset-0" aria-hidden="true" />
 
-      <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6">
+      <motion.div
+        style={{ y: contentY, opacity: contentOpacity }}
+        className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6"
+      >
 
         {/* Ribbon */}
         <motion.div
@@ -130,7 +152,7 @@ export function Hero() {
             </div>
           </div>
         </motion.div>
-      </div>
+      </motion.div>
 
       <motion.button
         initial={{ opacity: 0 }} animate={{ opacity: 1 }}
