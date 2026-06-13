@@ -53,7 +53,7 @@ export function Stats() {
         </div>
 
         {/* Stats grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6"
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6"
           style={{ maxWidth: "56rem", marginInline: "auto" }}>
           {STATS.map((s, i) => (
             <motion.div key={s.label}
@@ -68,14 +68,16 @@ export function Stats() {
                   justifyContent: "center", marginBottom: "1.5rem" }}>
                 <s.Icon style={{ width: "1.75rem", height: "1.75rem", color: "#9aad3b" }} aria-hidden="true" />
               </div>
-              {/* Big number */}
-              <div style={{ display: "flex", alignItems: "baseline", gap: "0.375rem", marginBottom: "0.25rem" }}>
-                <span style={{ fontSize: "clamp(3.5rem,8vw,5.5rem)", fontWeight: 900,
-                    lineHeight: 1, color: "#9aad3b", letterSpacing: "-0.04em",
+              {/* Big number — wraps the unit below on narrow cards so it never clips */}
+              <div style={{ display: "flex", alignItems: "baseline", justifyContent: "center",
+                  flexWrap: "wrap", gap: "0.125rem 0.4rem", marginBottom: "0.25rem", maxWidth: "100%" }}>
+                <span style={{ fontSize: "clamp(3rem,6vw,4.5rem)", fontWeight: 900,
+                    lineHeight: 1, color: "#9aad3b", letterSpacing: "-0.03em",
                     textShadow: "0 0 40px rgba(154,173,59,0.4)" }}>
                   {s.number}
                 </span>
-                <span style={{ fontSize: "1.25rem", fontWeight: 700, color: "rgba(200,216,122,0.8)" }}>
+                <span style={{ fontSize: "1.25rem", fontWeight: 700, color: "rgba(200,216,122,0.8)",
+                    whiteSpace: "nowrap" }}>
                   {s.unit}
                 </span>
               </div>
