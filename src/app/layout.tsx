@@ -80,9 +80,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="de" className={inter.variable}>
-      <head>
-        <link rel="icon" href="/images/favicon.ico" sizes="any" />
-      </head>
+      {/* Favicon & touch icon are provided by src/app/icon.png and
+          src/app/apple-icon.png (Next.js file-based metadata). */}
       <body className="antialiased">{children}</body>
     </html>
   );
